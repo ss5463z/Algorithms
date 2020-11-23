@@ -1,0 +1,538 @@
+
+import sys
+try:
+    import Tkinter as tk
+
+      except ImportError:
+
+    import tkinter as tk
+
+
+
+    try:
+
+        import ttk
+
+    py3 = False
+        except ImportError:
+
+    import tkinter.ttk as ttk
+
+    20
+    py3 = True
+    21
+    22
+    import GUI_support
+
+    23
+    24
+
+
+    def vp_start_gui():
+        25
+        '''Starting point when module is the main routine.'''
+
+
+    26
+    global val, w, root
+    27
+    root = tk.Tk()
+    28
+    GUI_support.set_Tk_var()
+    29
+    top = COMP1828JOURNEYPLANNER(root)
+    30
+    GUI_support.init(root, top)
+    31
+    root.mainloop()
+    32
+    33
+    w = None
+    34
+
+
+    def create_COMP1828JOURNEYPLANNER(rt, *args, **kwargs):
+        35
+        '''Starting point when module is imported by another module.
+ 36        Correct form of call: 'create_COMP1828JOURNEYPLANNER(root, *args, **kwargs)' .'''
+
+
+    37
+    global w, w_win, root
+    38  # rt = root
+    39
+    root = rt
+    40
+    w = tk.Toplevel(root)
+    41
+    GUI_support.set_Tk_var()
+    42
+    top = COMP1828JOURNEYPLANNER(w)
+    43
+    GUI_support.init(w, top, *args, **kwargs)
+    44
+    return (w, top)
+    45
+    46
+
+
+    def destroy_COMP1828JOURNEYPLANNER():
+        47
+        global w
+
+
+    48
+    w.destroy()
+    49
+    w = None
+    50
+    51
+
+
+    class COMP1828JOURNEYPLANNER:
+        52
+
+        def __init__(self, top=None):
+
+            53
+        '''This class configures and populates the toplevel window.
+ 54            top is the toplevel containing window.'''
+
+
+    55
+    _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
+    56
+    _fgcolor = '#000000'  # X11 color: 'black'
+    57
+    _compcolor = '#d9d9d9'  # X11 color: 'gray85'
+    58
+    _ana1color = '#d9d9d9'  # X11 color: 'gray85'
+    59
+    _ana2color = '#ececec'  # Closest X11 color: 'gray92'
+    60
+    self.style = ttk.Style()
+    61
+    if sys.platform == "win32":
+        62
+        self.style.theme_use('winnative')
+    63
+    self.style.configure('.', background=_bgcolor)
+    64
+    self.style.configure('.', foreground=_fgcolor)
+    65
+    self.style.map('.', background=
+    66[('selected', _compcolor), ('active', _ana2color)])
+    67
+    68
+    top.geometry("2653x1504+31+7")
+    69
+    top.minsize(120, 1)
+    70
+    top.maxsize(4639, 1508)
+    71
+    top.resizable(1, 1)
+    72
+    top.title("New Toplevel")
+    73
+    top.configure(background="#d9d9d9")
+    74
+    75
+    self.Button1 = tk.Button(top)
+    76
+    self.Button1.place(relx=0.663, rely=0.412, height=54, width=207)
+    77
+    self.Button1.configure(activebackground="#ececec")
+    78
+    self.Button1.configure(activeforeground="#000000")
+    79
+    self.Button1.configure(background="#d9d9d9")
+    80
+    self.Button1.configure(disabledforeground="#a3a3a3")
+    81
+    self.Button1.configure(foreground="#000000")
+    82
+    self.Button1.configure(highlightbackground="#d9d9d9")
+    83
+    self.Button1.configure(highlightcolor="black")
+    84
+    self.Button1.configure(pady="0")
+    85
+    self.Button1.configure(text='''CALCULATE ESTIMATED TIME''')
+    86
+    87
+    self.Listbox1 = tk.Listbox(top)
+    88
+    self.Listbox1.place(relx=0.106, rely=0.266, relheight=0.293
+    89, relwidth = 0.29)
+    90
+    self.Listbox1.configure(background="white")
+    91
+    self.Listbox1.configure(disabledforeground="#a3a3a3")
+    92
+    self.Listbox1.configure(font="TkFixedFont")
+    93
+    self.Listbox1.configure(foreground="#000000")
+    94
+    self.Listbox1.configure(listvariable=GUI_support.TFL
+    LINES)
+    95
+    96
+    self.Scrolledlistbox1 = ScrolledListBox(top)
+    97
+    self.Scrolledlistbox1.place(relx=0.433, rely=0.267, relheight=0.122
+    98, relwidth = 0.168)
+    99
+    self.Scrolledlistbox1.configure(background="white")
+100
+self.Scrolledlistbox1.configure(cursor="xterm")
+101
+self.Scrolledlistbox1.configure(disabledforeground="#a3a3a3")
+102
+self.Scrolledlistbox1.configure(font="TkFixedFont")
+103
+self.Scrolledlistbox1.configure(foreground="black")
+104
+self.Scrolledlistbox1.configure(highlightbackground="#d9d9d9")
+105
+self.Scrolledlistbox1.configure(highlightcolor="#d9d9d9")
+106
+self.Scrolledlistbox1.configure(selectbackground="blue")
+107
+self.Scrolledlistbox1.configure(selectforeground="white")
+108
+self.Scrolledlistbox1.configure(listvariable=GUI_support.Station
+A)
+109
+110
+self.Scrolledlistbox2 = ScrolledListBox(top)
+111
+self.Scrolledlistbox2.place(relx=0.433, rely=0.444, relheight=0.122
+112, relwidth = 0.168)
+113
+self.Scrolledlistbox2.configure(background="white")
+114
+self.Scrolledlistbox2.configure(cursor="xterm")
+115
+self.Scrolledlistbox2.configure(disabledforeground="#a3a3a3")
+116
+self.Scrolledlistbox2.configure(font="TkFixedFont")
+117
+self.Scrolledlistbox2.configure(foreground="black")
+118
+self.Scrolledlistbox2.configure(highlightbackground="#d9d9d9")
+119
+self.Scrolledlistbox2.configure(highlightcolor="#d9d9d9")
+120
+self.Scrolledlistbox2.configure(selectbackground="blue")
+121
+self.Scrolledlistbox2.configure(selectforeground="white")
+122
+self.Scrolledlistbox2.configure(listvariable=GUI_support.STATION
+B)
+123
+124
+self.menubar = tk.Menu(top, font="TkMenuFont", bg=_bgcolor, fg=_fgcolor)
+125
+top.configure(menu=self.menubar)
+126
+127
+self.Label1 = tk.Label(top)
+128
+self.Label1.place(relx=0.083, rely=0.2, height=70, width=592)
+129
+self.Label1.configure(background="#d9d9d9")
+130
+self.Label1.configure(disabledforeground="#a3a3a3")
+131
+self.Label1.configure(foreground="#000000")
+132
+self.Label1.configure(text='''TFL LINES''')
+133
+134
+self.Label2 = tk.Label(top)
+135
+self.Label2.place(relx=0.433, rely=0.2, height=70, width=371)
+136
+self.Label2.configure(background="#d9d9d9")
+137
+self.Label2.configure(disabledforeground="#a3a3a3")
+138
+self.Label2.configure(foreground="#000000")
+139
+self.Label2.configure(text='''STATION A''')
+140
+141
+self.Label3 = tk.Label(top)
+142
+self.Label3.place(relx=0.417, rely=0.4, height=70, width=459)
+143
+self.Label3.configure(background="#d9d9d9")
+144
+self.Label3.configure(disabledforeground="#a3a3a3")
+145
+self.Label3.configure(foreground="#000000")
+146
+self.Label3.configure(text='''STATION B''')
+147
+148  # The following code is added to facilitate the Scrolled widgets you specified.
+149
+
+
+class AutoScroll(object):
+    150
+    '''Configure the scrollbars for a widget.'''
+
+
+151
+
+
+def __init__(self, master):
+    152  # Rozen. Added the try-except clauses so that this class
+
+
+153  # could be used for scrolled entry widget for which vertical
+154  # scrolling is not supported. 5/7/14.
+155
+try:
+    156
+    vsb = ttk.Scrollbar(master, orient='vertical', command=self.yview)
+157         except:
+158
+pass
+159
+hsb = ttk.Scrollbar(master, orient='horizontal', command=self.xview)
+160
+try:
+    161
+    self.configure(yscrollcommand=self._autoscroll(vsb))
+162         except:
+163
+pass
+164
+self.configure(xscrollcommand=self._autoscroll(hsb))
+165
+self.grid(column=0, row=0, sticky='nsew')
+166
+try:
+    167
+    vsb.grid(column=1, row=0, sticky='ns')
+168         except:
+169
+pass
+170
+hsb.grid(column=0, row=1, sticky='ew')
+171
+master.grid_columnconfigure(0, weight=1)
+172
+master.grid_rowconfigure(0, weight=1)
+173  # Copy geometry methods of master  (taken from ScrolledText.py)
+174
+if py3:
+    175
+    methods = tk.Pack.__dict__.keys() | tk.Grid.__dict__.keys() \
+            176 | tk.Place.__dict__.keys()
+177 else:
+178
+methods = tk.Pack.__dict__.keys() + tk.Grid.__dict__.keys() \
+    179 + tk.Place.__dict__.keys()
+180
+for meth in methods:
+    181
+    if meth[0] != '_' and meth not in ('config', 'configure'):
+        182
+    setattr(self, meth, getattr(master, meth))
+183
+184 @ staticmethod
+185
+
+
+def _autoscroll(sbar):
+    186
+    '''Hide and show scrollbar as needed.'''
+
+
+187
+
+
+def wrapped(first, last):
+    188
+    first, last = float(first), float(last)
+
+
+189
+if first <= 0 and last >= 1:
+    190
+    sbar.grid_remove()
+191 else:
+192
+sbar.grid()
+193
+sbar.set(first, last)
+194
+return wrapped
+195
+196
+
+
+def __str__(self):
+    197
+    return str(self.master)
+
+
+198
+199
+
+
+def _create_container(func):
+    200
+    '''Creates a ttk Frame with a given master, and use this new frame to
+201     place the scrollbars and the widget.'''
+
+
+202
+
+
+def wrapped(cls, master, **kw):
+    203
+    container = ttk.Frame(master)
+
+
+204
+container.bind('<Enter>', lambda e: _bound_to_mousewheel(e, container))
+205
+container.bind('<Leave>', lambda e: _unbound_to_mousewheel(e, container))
+206
+return func(cls, container, **kw)
+207
+return wrapped
+208
+209
+
+
+class ScrolledListBox(AutoScroll, tk.Listbox):
+    210
+    '''A standard Tkinter Listbox widget with scrollbars that will
+211     automatically show/hide as needed.'''
+
+
+212 @ _create_container
+213
+
+
+def __init__(self, master, **kw):
+    214
+    tk.Listbox.__init__(self, master, **kw)
+
+
+215
+AutoScroll.__init__(self, master)
+216
+
+
+def size_(self):
+    217
+    sz = tk.Listbox.size(self)
+
+
+218
+return sz
+219
+220
+import platform
+
+221
+
+
+def _bound_to_mousewheel(event, widget):
+    222
+    child = widget.winfo_children()[0]
+
+
+223
+if platform.system() == 'Windows' or platform.system() == 'Darwin':
+    224
+    child.bind_all('<MouseWheel>', lambda e: _on_mousewheel(e, child))
+225
+child.bind_all('<Shift-MouseWheel>', lambda e: _on_shiftmouse(e, child))
+226 else:
+227
+child.bind_all('<Button-4>', lambda e: _on_mousewheel(e, child))
+228
+child.bind_all('<Button-5>', lambda e: _on_mousewheel(e, child))
+229
+child.bind_all('<Shift-Button-4>', lambda e: _on_shiftmouse(e, child))
+230
+child.bind_all('<Shift-Button-5>', lambda e: _on_shiftmouse(e, child))
+231
+232
+
+
+def _unbound_to_mousewheel(event, widget):
+    233
+    if platform.system() == 'Windows' or platform.system() == 'Darwin':
+        234
+    widget.unbind_all('<MouseWheel>')
+
+
+235
+widget.unbind_all('<Shift-MouseWheel>')
+236 else:
+237
+widget.unbind_all('<Button-4>')
+238
+widget.unbind_all('<Button-5>')
+239
+widget.unbind_all('<Shift-Button-4>')
+240
+widget.unbind_all('<Shift-Button-5>')
+241
+242
+
+
+def _on_mousewheel(event, widget):
+    243
+    if platform.system() == 'Windows':
+        244
+    widget.yview_scroll(-1 * int(event.delta / 120), 'units')
+
+
+245 elif platform.system() == 'Darwin':
+246
+widget.yview_scroll(-1 * int(event.delta), 'units')
+247 else:
+248
+if event.num == 4:
+    249
+    widget.yview_scroll(-1, 'units')
+250 elif event.num == 5:
+251
+widget.yview_scroll(1, 'units')
+252
+253
+
+
+def _on_shiftmouse(event, widget):
+    254
+    if platform.system() == 'Windows':
+        255
+    widget.xview_scroll(-1 * int(event.delta / 120), 'units')
+
+
+256 elif platform.system() == 'Darwin':
+257
+widget.xview_scroll(-1 * int(event.delta), 'units')
+258 else:
+259
+if event.num == 4:
+    260
+    widget.xview_scroll(-1, 'units')
+261 elif event.num == 5:
+262
+widget.xview_scroll(1, 'units')
+
+if __name__ == '__main__':
+
+    vp_start_gui()
+
+
+
